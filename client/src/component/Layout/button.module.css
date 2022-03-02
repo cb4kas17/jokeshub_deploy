@@ -1,0 +1,29 @@
+.button {
+    font: inherit;
+    background: #fcc72d;
+    color: #000;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 20%);
+    transition: all 0.5s ease;
+}
+
+.button:hover {
+    background: #c442b9b6;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 20%);
+}
+.button:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 20%);
+}
+
+.button:focus {
+    outline: none;
+}

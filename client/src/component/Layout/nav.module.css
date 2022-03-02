@@ -1,0 +1,25 @@
+.logos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding-top: 2rem;
+    padding-left: 4rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    width: 100%;
+    background: linear-gradient(252.6deg, #0cd0ac 0.23%, #3d666b 100%);
+    z-index: 1;
+}
+.logos img {
+    width: 10rem;
+    height: 8rem;
+}
+.header {
+    font-family: Port Lligat Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 4.8rem;
+    color: rgb(255, 255, 255);
+    margin-left: 2rem;
+}

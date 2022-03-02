@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+.firstElement {
+    flex: 5;
+    width: 62.6rem;
+    position: relative;
+    padding: 20rem 0;
+}
+.secondElement {
+    flex: 5;
+    width: 100%;
+    padding-top: 35rem;
+    padding-right: 0;
+    position: relative;
+}
+.header {
+    font-family: Port Lligat Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16rem;
+    color: rgb(51, 25, 25);
+    margin-bottom: 5rem;
+    position: absolute;
+    top: 20rem;
+    animation: slide 1.5s ease;
+    right: -7rem;
+    width: 100%;
+    transition: all ease 1s;
+}
+.logos {
+    display: flex;
+    margin-left: 6rem;
+    margin-top: 20rem;
+    width: 100%;
+    transition: all 0.2s;
+}
+.logos:hover {
+    transform: rotateX(30deg);
+}
+
+.header:hover {
+    transform: translateY(-1rem);
+    color: rgb(145, 45, 45);
+}
+
+.login_container {
+    width: 100%;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginFormFields {
+    margin-bottom: 2rem;
+    position: relative;
+}
+.loginFormFields:nth-child(2) {
+    margin-bottom: 5rem;
+}
+.loginFormFields input {
+    font-size: 1.5rem;
+    flex: 3;
+    width: 51.2rem;
+    height: 6.6rem;
+    background: #fefefe;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 13px;
+    border: none;
+    padding: 3rem;
+    outline: none;
+    font-size: 2.4rem;
+}
+.loginFormFields input::placeholder {
+    font-size: 2.4rem;
+}
+
+.invalid input {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+}
+
+.invalid input:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
+}
+
+.noAccount {
+    font-size: 3rem;
+    font-family: Poppins;
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+}
+
+.errorMes {
+    position: absolute;
+    color: rgb(255, 0, 0);
+    grid-column: 2;
+    font-size: 2rem;
+    bottom: -3.5rem;
+    text-align: center;
+    left: 15rem;
+}
+.errorMesPW {
+    position: absolute;
+    color: rgb(255, 0, 0);
+    grid-column: 2;
+    font-size: 2rem;
+    bottom: -3.5rem;
+    text-align: center;
+    left: 17rem;
+}
