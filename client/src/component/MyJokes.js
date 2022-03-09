@@ -28,9 +28,9 @@ function MyJokes(props) {
                 setJokes(data);
                 console.log(data);
                 setLoading(false);
-                if (response.data === 'login again') {
-                    navigate('/');
-                }
+                // if (response.data === 'login again') {
+                //     navigate('/');
+                // }
             } catch (error) {
                 console.log(error);
                 navigate('/');

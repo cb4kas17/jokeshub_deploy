@@ -31,9 +31,9 @@ function EditProfile() {
                 setUser(data);
                 setEnteredName(data.fullName);
                 setLoading(false);
-                if (response.data === 'login again') {
-                    navigate('/');
-                }
+                // if (response.data === 'login again') {
+                //     navigate('/');
+                // }
             } catch (error) {
                 console.log(error);
                 navigate('/');

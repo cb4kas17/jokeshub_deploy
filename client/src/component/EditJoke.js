@@ -28,9 +28,9 @@ function EditJoke() {
                 console.log(response);
                 setJoke(data.content);
                 setLoading(false);
-                if (response.data === 'login again') {
-                    navigate('/');
-                }
+                // if (response.data === 'login again') {
+                //     navigate('/');
+                // }
             } catch (error) {
                 console.log(error);
                 navigate('/');

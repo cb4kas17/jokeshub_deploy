@@ -22,9 +22,9 @@ function CreateJoke() {
                 const data = await response.data.user;
                 setUser(data.fullName);
                 console.log(data.fullName);
-                if (response.data === 'login again') {
-                    navigate('/');
-                }
+                // if (response.data === 'login again') {
+                //     navigate('/');
+                // }
             } catch (error) {
                 console.log(error);
                 navigate('/');

@@ -34,9 +34,9 @@ function ViewJoke() {
                 console.log(response.data);
                 setJoke(data);
                 setLoading(false);
-                if (response.data === 'login again') {
-                    navigate('/');
-                }
+                // if (response.data === 'login again') {
+                //     navigate('/');
+                // }
             } catch (error) {
                 console.log(error);
             }

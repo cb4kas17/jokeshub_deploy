@@ -14,6 +14,7 @@ import EditJokePage from '../src/pages/EditJokePage';
 import EditProfilePage from '../src/pages/EditProfilePage';
 import ErrorPage from '../src/pages/ErrorPage';
 import Container from '../src/component/Layout/Container';
+import ProtectedRoute from './component/ProtectedRoute';
 function App() {
     return (
         <Container>
@@ -23,12 +24,14 @@ function App() {
                     <Route path="/" element={<WelcomePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/signup" element={<SignupPage />} />
-                    <Route path="/jokes" exact element={<AllJokesPage />} />
-                    <Route path="/jokes/:jokeID" element={<ViewJokePage />} />
-                    <Route path="/createJoke" element={<CreateJokePage />} />
-                    <Route path="/myJokes" element={<MyJokesPage />} />
-                    <Route path="/editJoke/:jokeID" element={<EditJokePage />} />
-                    <Route path="/editProfile" element={<EditProfilePage />} />
+                    <Route element={<ProtectedRoute />}>
+                        <Route path="/jokes" exact element={<AllJokesPage />} />
+                        <Route path="/jokes/:jokeID" element={<ViewJokePage />} />
+                        <Route path="/createJoke" element={<CreateJokePage />} />
+                        <Route path="/myJokes" element={<MyJokesPage />} />
+                        <Route path="/editJoke/:jokeID" element={<EditJokePage />} />
+                        <Route path="/editProfile" element={<EditProfilePage />} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </Container>
