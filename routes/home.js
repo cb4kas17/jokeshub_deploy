@@ -16,7 +16,11 @@ router.post('/', async (req, res) => {
         } else {
             let isMatch = await bcrypt.compare(req.body.password, userData.passWord);
             if (userData.userName === req.body.username && isMatch) {
-                const accessToken = jwt.sign({ id: userData._id, username: userData.userName, name: userData.fullName }, 'secretKey', { expiresIn: '6h' });
+                const accessToken = jwt.sign(
+                    { id: userData._id, username: userData.userName, name: userData.fullName },
+                    'secretKey',
+                    { expiresIn: '6h' }
+                );
 
                 res.json({
                     success: true,

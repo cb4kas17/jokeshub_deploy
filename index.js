@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -5,7 +6,6 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
 const path = require('path');
-require('dotenv').config();
 
 //middlewares
 app.use(bodyParser.json()); //application/json, parses incoming json data
