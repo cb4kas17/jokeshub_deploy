@@ -38,7 +38,7 @@ function Login(props) {
         try {
             const login = async () => {
                 try {
-                    const response = await axios.post(`${process.env.React_App_api}`, userData);
+                    const response = await axios.post(`${process.env.React_App_api}/api`, userData);
                     console.log(response);
                     if (response.data.success) {
                         console.log('logged in');
