@@ -21,7 +21,7 @@ function EditProfile() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.React_App_api}/getUser`, {
+                const response = await axios.get(`${process.env.REACT_APP_API}/getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -47,11 +47,15 @@ function EditProfile() {
             name: enteredName,
         };
         try {
-            const response = await axios.put(`${process.env.React_App_api}/updateProfile/${user.userName}`, data, {
-                headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                },
-            });
+            const response = await axios.put(
+                `${process.env.REACT_APP_API}/updateProfile/${user.userName}`,
+                data,
+                {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                    },
+                }
+            );
             const updatedData = await response.data.userData;
             console.log('data' + updatedData);
             console.log(response);
@@ -72,11 +76,15 @@ function EditProfile() {
         };
         if (enteredNewPW.length > 7) {
             try {
-                const response = await axios.put(`${process.env.React_App_api}/changePassword/${user.userName}`, data, {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                });
+                const response = await axios.put(
+                    `${process.env.REACT_APP_API}/changePassword/${user.userName}`,
+                    data,
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem('token'),
+                        },
+                    }
+                );
                 const updatedPW = await response.data.updatedUser;
                 console.log('log' + updatedPW);
                 if (response.data.success) {
@@ -141,7 +149,11 @@ function EditProfile() {
                                         setEnteredNewPW(e.target.value);
                                     }}
                                 />
-                                {errorPrompt && <p className={styles.errorMes}>Password should be at least 8 characters long</p>}
+                                {errorPrompt && (
+                                    <p className={styles.errorMes}>
+                                        Password should be at least 8 characters long
+                                    </p>
+                                )}
                             </div>
                             <div>
                                 <Button onClick={changePWButtonHandler}>Change Password</Button>
@@ -167,7 +179,9 @@ function EditProfile() {
                         {pwChanged && (
                             <Modal className={styles.modalDesign}>
                                 <div className={styles.messageContainer}>
-                                    <h2 className={styles.messageHeader}>Password successfully changed</h2>
+                                    <h2 className={styles.messageHeader}>
+                                        Password successfully changed
+                                    </h2>
                                     <div className={styles.button_container}>
                                         <Button
                                             className={styles.modalButton}

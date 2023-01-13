@@ -10,7 +10,7 @@ function NavBurger(props) {
     const [clicked, setClicked] = useState(false);
 
     const logoutHanlder = async () => {
-        const response = await axios.get(`${process.env.React_App_api}/logout`, {
+        const response = await axios.get(`${process.env.REACT_APP_API}/logout`, {
             headers: {
                 'x-access-token': localStorage.getItem('token'),
             },
@@ -91,7 +91,11 @@ function NavBurger(props) {
                             </NavLink>
                         </li>
                         <li className={styles.nav_item}>
-                            <NavLink to="/login" className={styles.nav_link} onClick={logoutHanlder}>
+                            <NavLink
+                                to="/login"
+                                className={styles.nav_link}
+                                onClick={logoutHanlder}
+                            >
                                 Logout
                             </NavLink>
                         </li>

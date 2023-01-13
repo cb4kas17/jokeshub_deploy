@@ -54,7 +54,7 @@ function Signup() {
 
         const postData = async () => {
             try {
-                const response = await axios.post(`${process.env.React_App_api}/signup`, userData);
+                const response = await axios.post(`${process.env.REACT_APP_API}/signup`, userData);
                 console.log(response.data);
                 if (response.data.success) {
                     console.log('data succeed');
@@ -75,7 +75,12 @@ function Signup() {
             setNotMatch(true);
         } else {
             setNotMatch(false);
-            if (enteredPasswordIsValid && enteredNameIsValid && enteredUserIsValid && enteredConfirmIsValid) {
+            if (
+                enteredPasswordIsValid &&
+                enteredNameIsValid &&
+                enteredUserIsValid &&
+                enteredConfirmIsValid
+            ) {
                 postData();
             }
         }
@@ -94,7 +99,15 @@ function Signup() {
                                           ${styles.invalid}`
                         }
                     >
-                        <input type="text" id="username" placeholder="Username (At least 8 char)" value={enteredUser} onChange={userChangeHandler} onBlur={userBlurHandler} required={true} />
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Username (At least 8 char)"
+                            value={enteredUser}
+                            onChange={userChangeHandler}
+                            onBlur={userBlurHandler}
+                            required={true}
+                        />
                     </div>
                     <div
                         className={
@@ -104,7 +117,15 @@ function Signup() {
                                           ${styles.invalid}`
                         }
                     >
-                        <input type="text" id="name" placeholder="Display Name" value={enteredName} onChange={nameChangeHandler} onBlur={nameBlurHandler} required={true} />
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Display Name"
+                            value={enteredName}
+                            onChange={nameChangeHandler}
+                            onBlur={nameBlurHandler}
+                            required={true}
+                        />
                         {userExist && <p className={styles.errorMes}>Username already exist</p>}
                     </div>
 

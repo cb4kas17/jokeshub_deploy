@@ -4,7 +4,12 @@ import Button from './Layout/Button';
 import Nav from './Layout/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Card from './Layout/Card';
-import { faPaperPlane, faQuoteLeft, faQuoteRight, faComment } from '@fortawesome/free-solid-svg-icons';
+import {
+    faPaperPlane,
+    faQuoteLeft,
+    faQuoteRight,
+    faComment,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from './viewJoke.module.css';
 import NoComments from './NoComments';
 import axios from 'axios';
@@ -25,11 +30,14 @@ function ViewJoke() {
     useEffect(() => {
         async function fetchJoke() {
             try {
-                const response = await axios.get(`${process.env.React_App_api}/allJokes/${jokeID}`, {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                });
+                const response = await axios.get(
+                    `${process.env.REACT_APP_API}/allJokes/${jokeID}`,
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem('token'),
+                        },
+                    }
+                );
                 const data = await response.data.joke;
                 console.log(response.data);
                 setJoke(data);
@@ -43,11 +51,14 @@ function ViewJoke() {
         }
         async function fetchComment() {
             try {
-                const responsex = await axios.get(`${process.env.React_App_api}/jokes/comment/${jokeID}`, {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                });
+                const responsex = await axios.get(
+                    `${process.env.REACT_APP_API}/jokes/comment/${jokeID}`,
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem('token'),
+                        },
+                    }
+                );
                 const commentData = await responsex.data.comment;
                 setComment(commentData);
                 console.log(commentData);
@@ -59,7 +70,7 @@ function ViewJoke() {
         }
         async function fetchUser() {
             try {
-                const responsey = await axios.get(`${process.env.React_App_api}/getUser`, {
+                const responsey = await axios.get(`${process.env.REACT_APP_API}/getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -82,11 +93,15 @@ function ViewJoke() {
             comment: commentContent,
         };
         try {
-            const response = await axios.post(`${process.env.React_App_api}/jokes/comment/${jokeID}`, commentData, {
-                headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                },
-            });
+            const response = await axios.post(
+                `${process.env.REACT_APP_API}/jokes/comment/${jokeID}`,
+                commentData,
+                {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                    },
+                }
+            );
             const data = await response.data.comment;
             setCommentContent('');
             setRefresh(true);
@@ -111,8 +126,17 @@ function ViewJoke() {
                                 <div className={styles.joke_content_container}>
                                     <div className={styles.joke_author}>By: {joke.author}</div>
                                     <div className={styles.joke_content}>
-                                        <FontAwesomeIcon icon={faQuoteLeft} size="sm" className={styles.quoteLeft} />
-                                        {joke.content} <FontAwesomeIcon icon={faQuoteRight} size="sm" className={styles.quoteRight} />
+                                        <FontAwesomeIcon
+                                            icon={faQuoteLeft}
+                                            size="sm"
+                                            className={styles.quoteLeft}
+                                        />
+                                        {joke.content}{' '}
+                                        <FontAwesomeIcon
+                                            icon={faQuoteRight}
+                                            size="sm"
+                                            className={styles.quoteRight}
+                                        />
                                     </div>
                                 </div>
                             </Card>
@@ -127,23 +151,38 @@ function ViewJoke() {
                                     value={commentContent}
                                 />
                                 <Button className={styles.btn} onClick={postComment}>
-                                    <FontAwesomeIcon icon={faPaperPlane} size="xl" className={styles.send} />
+                                    <FontAwesomeIcon
+                                        icon={faPaperPlane}
+                                        size="xl"
+                                        className={styles.send}
+                                    />
                                 </Button>
                             </div>
                             <div className={styles.comment_section_container}>
                                 <h1 className={styles.header}>
-                                    Comments <FontAwesomeIcon icon={faComment} size="sm" className={styles.commentIcon} />
+                                    Comments{' '}
+                                    <FontAwesomeIcon
+                                        icon={faComment}
+                                        size="sm"
+                                        className={styles.commentIcon}
+                                    />
                                 </h1>
                                 {commentLoading ? (
                                     <div className={styles.loadingContainer}>
-                                        <ClipLoader size={100} color={'#F1C815'} loading={loading} />
+                                        <ClipLoader
+                                            size={100}
+                                            color={'#F1C815'}
+                                            loading={loading}
+                                        />
                                     </div>
                                 ) : (
                                     <div>
                                         {comment.length === 0 && <NoComments />}
                                         {comment.map((item, i) => (
                                             <div className={styles.comment_container} key={i}>
-                                                <div className={styles.comment_author}>From: {item.author}</div>
+                                                <div className={styles.comment_author}>
+                                                    From: {item.author}
+                                                </div>
                                                 <div className={styles.comment}>{item.comment}</div>
                                             </div>
                                         ))}

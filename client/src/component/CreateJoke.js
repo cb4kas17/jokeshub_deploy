@@ -14,7 +14,7 @@ function CreateJoke() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.React_App_api}/getUser`, {
+                const response = await axios.get(`${process.env.REACT_APP_API}/getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -40,11 +40,15 @@ function CreateJoke() {
         try {
             const postJoke = async () => {
                 try {
-                    const response = await axios.post(`${process.env.React_App_api}/createJokes`, jokeData, {
-                        headers: {
-                            'x-access-token': localStorage.getItem('token'),
-                        },
-                    });
+                    const response = await axios.post(
+                        `${process.env.REACT_APP_API}/createJokes`,
+                        jokeData,
+                        {
+                            headers: {
+                                'x-access-token': localStorage.getItem('token'),
+                            },
+                        }
+                    );
                     if (response.data.success) {
                         console.log('posted');
                         navigate('/jokes');

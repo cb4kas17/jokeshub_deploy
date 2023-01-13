@@ -19,7 +19,7 @@ function AllJokes() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.React_App_api}/allJokes`, {
+                const response = await axios.get(`${process.env.REACT_APP_API}/allJokes`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -59,11 +59,24 @@ function AllJokes() {
                                 jokes.map((item, i) => (
                                     <Card className={styles.single_joke_container} key={i}>
                                         <div className={styles.joke_content_container}>
-                                            <div className={styles.date}>{item.createdAt.toLocaleString().slice(0, 10)}</div>
-                                            <div className={styles.joke_author}>By: {item.author}</div>
+                                            <div className={styles.date}>
+                                                {item.createdAt.toLocaleString().slice(0, 10)}
+                                            </div>
+                                            <div className={styles.joke_author}>
+                                                By: {item.author}
+                                            </div>
                                             <div className={styles.joke_content}>
-                                                <FontAwesomeIcon icon={faQuoteLeft} size="sm" className={styles.quoteLeft} />
-                                                {item.content} <FontAwesomeIcon icon={faQuoteRight} size="sm" className={styles.quoteRight} />
+                                                <FontAwesomeIcon
+                                                    icon={faQuoteLeft}
+                                                    size="sm"
+                                                    className={styles.quoteLeft}
+                                                />
+                                                {item.content}{' '}
+                                                <FontAwesomeIcon
+                                                    icon={faQuoteRight}
+                                                    size="sm"
+                                                    className={styles.quoteRight}
+                                                />
                                             </div>
                                         </div>
 

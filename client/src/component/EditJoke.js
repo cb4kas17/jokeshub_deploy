@@ -18,11 +18,14 @@ function EditJoke() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.React_App_api}/allJokes/${jokeID}`, {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                });
+                const response = await axios.get(
+                    `${process.env.REACT_APP_API}/allJokes/${jokeID}`,
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem('token'),
+                        },
+                    }
+                );
                 const data = await response.data.joke;
                 console.log(data);
                 console.log(response);
@@ -43,11 +46,15 @@ function EditJoke() {
         let content = { content: joke };
         async function updateData() {
             try {
-                const response = await axios.put(`${process.env.React_App_api}/EditJokes/${jokeID}`, content, {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                });
+                const response = await axios.put(
+                    `${process.env.REACT_APP_API}/EditJokes/${jokeID}`,
+                    content,
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem('token'),
+                        },
+                    }
+                );
                 const data = await response.data.joke;
                 console.log(data);
                 navigate('/myJokes');
@@ -59,11 +66,14 @@ function EditJoke() {
     };
     const onDeleteHandler = async (e) => {
         try {
-            const response = await axios.delete(`${process.env.React_App_api}/EditJokes/${jokeID}`, {
-                headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                },
-            });
+            const response = await axios.delete(
+                `${process.env.REACT_APP_API}/EditJokes/${jokeID}`,
+                {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                    },
+                }
+            );
             const data = await response.data.joke;
             console.log(data);
             if (response.data.success) {
@@ -114,9 +124,14 @@ function EditJoke() {
                     {confirmation && (
                         <Modal className={styles.modalDesign}>
                             <div className={styles.messageContainer}>
-                                <h2 className={styles.messageHeader}>Are you sure you want to delete this joke?</h2>
+                                <h2 className={styles.messageHeader}>
+                                    Are you sure you want to delete this joke?
+                                </h2>
                                 <div className={styles.button_container}>
-                                    <Button className={styles.modalButton} onClick={onDeleteHandler}>
+                                    <Button
+                                        className={styles.modalButton}
+                                        onClick={onDeleteHandler}
+                                    >
                                         Yes
                                     </Button>
                                     <Button

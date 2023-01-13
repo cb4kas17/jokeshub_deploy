@@ -38,7 +38,7 @@ function Login(props) {
         try {
             const login = async () => {
                 try {
-                    const response = await axios.post(`${process.env.React_App_api}/api`, userData);
+                    const response = await axios.post(`${process.env.REACT_APP_API}/api`, userData);
                     console.log(response);
                     if (response.data.success) {
                         console.log('logged in');
@@ -84,7 +84,14 @@ function Login(props) {
                                           ${styles.invalid}`
                         }
                     >
-                        <input type="text" id="username" placeholder="Username" value={enteredUser} onChange={userChangeHandler} onBlur={userBlurHandler} />
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Username"
+                            value={enteredUser}
+                            onChange={userChangeHandler}
+                            onBlur={userBlurHandler}
+                        />
                     </div>
                     <div
                         className={
@@ -94,8 +101,17 @@ function Login(props) {
                                           ${styles.invalid}`
                         }
                     >
-                        <input type="password" id="password" placeholder="Password" value={enteredPassword} onChange={passwordChangeHandler} onBlur={passwordBlurHandler} />
-                        {incorrectPassword && <p className={styles.errorMesPW}>Incorrect password</p>}
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            value={enteredPassword}
+                            onChange={passwordChangeHandler}
+                            onBlur={passwordBlurHandler}
+                        />
+                        {incorrectPassword && (
+                            <p className={styles.errorMesPW}>Incorrect password</p>
+                        )}
                         {noUser && <p className={styles.errorMes}>Username does not exist</p>}
                     </div>
                     <Button className={styles.btn} onClick={onLoginClickHandler}>
