@@ -21,10 +21,16 @@ app.use('/api', homeRoute);
 app.use('/api', jokesRoute);
 app.use('/api', commentsRoute);
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+    });
+}
+// app.use(express.static(path.join(__dirname, 'client', 'build')));
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
 //error route
 app.use((req, res) => {
     res.status(404).send('<h1>error 404</h1>');
