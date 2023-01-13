@@ -19,7 +19,7 @@ function MyJokes(props) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`myJokes`, {
+                const response = await axios.get(`api/myJokes`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },

@@ -10,7 +10,7 @@ function NavBurger(props) {
     const [clicked, setClicked] = useState(false);
 
     const logoutHanlder = async () => {
-        const response = await axios.get(`logout`, {
+        const response = await axios.get(`api/logout`, {
             headers: {
                 'x-access-token': localStorage.getItem('token'),
             },

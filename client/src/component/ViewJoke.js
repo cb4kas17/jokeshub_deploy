@@ -30,7 +30,7 @@ function ViewJoke() {
     useEffect(() => {
         async function fetchJoke() {
             try {
-                const response = await axios.get(`allJokes/${jokeID}`, {
+                const response = await axios.get(`api/allJokes/${jokeID}`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -48,7 +48,7 @@ function ViewJoke() {
         }
         async function fetchComment() {
             try {
-                const responsex = await axios.get(`jokes/comment/${jokeID}`, {
+                const responsex = await axios.get(`api/jokes/comment/${jokeID}`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -64,7 +64,7 @@ function ViewJoke() {
         }
         async function fetchUser() {
             try {
-                const responsey = await axios.get(`getUser`, {
+                const responsey = await axios.get(`api/getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -87,7 +87,7 @@ function ViewJoke() {
             comment: commentContent,
         };
         try {
-            const response = await axios.post(`jokes/comment/${jokeID}`, commentData, {
+            const response = await axios.post(`api/jokes/comment/${jokeID}`, commentData, {
                 headers: {
                     'x-access-token': localStorage.getItem('token'),
                 },

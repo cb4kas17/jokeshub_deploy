@@ -18,7 +18,7 @@ function EditJoke() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`allJokes/${jokeID}`, {
+                const response = await axios.get(`api/allJokes/${jokeID}`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -43,7 +43,7 @@ function EditJoke() {
         let content = { content: joke };
         async function updateData() {
             try {
-                const response = await axios.put(`EditJokes/${jokeID}`, content, {
+                const response = await axios.put(`api/EditJokes/${jokeID}`, content, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -59,7 +59,7 @@ function EditJoke() {
     };
     const onDeleteHandler = async (e) => {
         try {
-            const response = await axios.delete(`EditJokes/${jokeID}`, {
+            const response = await axios.delete(`api/EditJokes/${jokeID}`, {
                 headers: {
                     'x-access-token': localStorage.getItem('token'),
                 },

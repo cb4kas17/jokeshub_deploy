@@ -21,7 +21,7 @@ function EditProfile() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`getUser`, {
+                const response = await axios.get(`api/getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -47,7 +47,7 @@ function EditProfile() {
             name: enteredName,
         };
         try {
-            const response = await axios.put(`updateProfile/${user.userName}`, data, {
+            const response = await axios.put(`api/updateProfile/${user.userName}`, data, {
                 headers: {
                     'x-access-token': localStorage.getItem('token'),
                 },
@@ -72,7 +72,7 @@ function EditProfile() {
         };
         if (enteredNewPW.length > 7) {
             try {
-                const response = await axios.put(`changePassword/${user.userName}`, data, {
+                const response = await axios.put(`api/changePassword/${user.userName}`, data, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },

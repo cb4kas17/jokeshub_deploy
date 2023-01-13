@@ -19,7 +19,7 @@ function AllJokes() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`allJokes`, {
+                const response = await axios.get(`api/allJokes`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
