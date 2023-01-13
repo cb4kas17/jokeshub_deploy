@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
 // });
 //error route
 app.use((req, res) => {
-    res.status(404).send('<h1>error 404</h1>');
+    res.status(404).send('<h1>error 404dssad</h1>');
 });
 
 //database connection
