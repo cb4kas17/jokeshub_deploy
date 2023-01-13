@@ -30,14 +30,11 @@ function ViewJoke() {
     useEffect(() => {
         async function fetchJoke() {
             try {
-                const response = await axios.get(
-                    `${process.env.REACT_APP_API}/allJokes/${jokeID}`,
-                    {
-                        headers: {
-                            'x-access-token': localStorage.getItem('token'),
-                        },
-                    }
-                );
+                const response = await axios.get(`allJokes/${jokeID}`, {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                    },
+                });
                 const data = await response.data.joke;
                 console.log(response.data);
                 setJoke(data);
@@ -51,14 +48,11 @@ function ViewJoke() {
         }
         async function fetchComment() {
             try {
-                const responsex = await axios.get(
-                    `${process.env.REACT_APP_API}/jokes/comment/${jokeID}`,
-                    {
-                        headers: {
-                            'x-access-token': localStorage.getItem('token'),
-                        },
-                    }
-                );
+                const responsex = await axios.get(`jokes/comment/${jokeID}`, {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                    },
+                });
                 const commentData = await responsex.data.comment;
                 setComment(commentData);
                 console.log(commentData);
@@ -70,7 +64,7 @@ function ViewJoke() {
         }
         async function fetchUser() {
             try {
-                const responsey = await axios.get(`${process.env.REACT_APP_API}/getUser`, {
+                const responsey = await axios.get(`getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -93,15 +87,11 @@ function ViewJoke() {
             comment: commentContent,
         };
         try {
-            const response = await axios.post(
-                `${process.env.REACT_APP_API}/jokes/comment/${jokeID}`,
-                commentData,
-                {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                }
-            );
+            const response = await axios.post(`jokes/comment/${jokeID}`, commentData, {
+                headers: {
+                    'x-access-token': localStorage.getItem('token'),
+                },
+            });
             const data = await response.data.comment;
             setCommentContent('');
             setRefresh(true);

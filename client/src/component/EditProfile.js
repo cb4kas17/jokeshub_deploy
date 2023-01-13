@@ -21,7 +21,7 @@ function EditProfile() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API}/getUser`, {
+                const response = await axios.get(`getUser`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
@@ -47,15 +47,11 @@ function EditProfile() {
             name: enteredName,
         };
         try {
-            const response = await axios.put(
-                `${process.env.REACT_APP_API}/updateProfile/${user.userName}`,
-                data,
-                {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token'),
-                    },
-                }
-            );
+            const response = await axios.put(`updateProfile/${user.userName}`, data, {
+                headers: {
+                    'x-access-token': localStorage.getItem('token'),
+                },
+            });
             const updatedData = await response.data.userData;
             console.log('data' + updatedData);
             console.log(response);
@@ -76,15 +72,11 @@ function EditProfile() {
         };
         if (enteredNewPW.length > 7) {
             try {
-                const response = await axios.put(
-                    `${process.env.REACT_APP_API}/changePassword/${user.userName}`,
-                    data,
-                    {
-                        headers: {
-                            'x-access-token': localStorage.getItem('token'),
-                        },
-                    }
-                );
+                const response = await axios.put(`changePassword/${user.userName}`, data, {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                    },
+                });
                 const updatedPW = await response.data.updatedUser;
                 console.log('log' + updatedPW);
                 if (response.data.success) {

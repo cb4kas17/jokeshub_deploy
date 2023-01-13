@@ -54,7 +54,7 @@ function Signup() {
 
         const postData = async () => {
             try {
-                const response = await axios.post(`${process.env.REACT_APP_API}/signup`, userData);
+                const response = await axios.post(`signup`, userData);
                 console.log(response.data);
                 if (response.data.success) {
                     console.log('data succeed');
