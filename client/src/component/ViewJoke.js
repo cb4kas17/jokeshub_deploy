@@ -30,7 +30,7 @@ function ViewJoke() {
     useEffect(() => {
         async function fetchJoke() {
             try {
-                const response = await axios.get(`api/allJokes/${jokeID}`, {
+                const response = await axios.get(`/api/allJokes/${jokeID}`, {
                     headers: {
                         'x-access-token': localStorage.getItem('token'),
                     },
